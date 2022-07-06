@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pubsub
+spec:
+  template:
+    metadata:
+      name: pubsub-pod
+    spec:
+      containers:
+      - name: pubsub
+        image: pubsub
+        imagePullPolicy: Never
+      restartPolicy: Never
