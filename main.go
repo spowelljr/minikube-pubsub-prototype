@@ -10,8 +10,9 @@ import (
 )
 
 func main() {
-	addr := "192.168.58.2:8085"
-	os.Setenv("PUBSUB_EMULATOR_HOST", addr)
+	if err := os.Setenv("PUBSUB_EMULATOR_HOST", "192.168.58.2:8085"); err != nil {
+		log.Fatal(err)
+	}
 	client, err := pubsub.NewClient(context.Background(), "test")
 	if err != nil {
 		log.Fatalf("NewClient: %v", err)
